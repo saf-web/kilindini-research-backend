@@ -14,9 +14,6 @@ async function main() {
   await mongoose.connect('mongodb+srv://techsaf4:VusowGsCfrPmAKc6@kilindini-app.q5npqi2.mongodb.net/kilindini-app?retryWrites=true&w=majority&appName=kilindini-app');
 
 
-app.get('/', (req, res) => {
-  res.send('Kilindini Research App Server is running!')
-  })
 }
 
 main().then(() => console.log("Mongodb Connected Succesfully!")).catch(err => console.log(err));
@@ -27,6 +24,12 @@ const CategoryRoutes = require("./src/routes/categoryRoute");
 
 app.use('/api', ArticleRoutes)
 app.use('/api/', CategoryRoutes)
+
+
+app.get('/', (req, res) => {
+  res.send('Kilindini Research App Server is running!')
+  })
+  
 app.listen(port, () => {
   console.log(`Server running on port ${port}`)
 })
